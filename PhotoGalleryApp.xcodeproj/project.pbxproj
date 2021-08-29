@@ -24,6 +24,10 @@
 		FA36576D26DB93F70030E939 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36576C26DB93F70030E939 /* TableViewDataSource.swift */; };
 		FAC88A7126DBDEFA00D9F199 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A7026DBDEFA00D9F199 /* UIViewController.swift */; };
 		FAC88A7926DBFA8E00D9F199 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A7826DBFA8E00D9F199 /* ImagePreviewViewController.swift */; };
+		FAC88A7F26DC091400D9F199 /* GalleryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A7E26DC091400D9F199 /* GalleryModel.swift */; };
+		FAC88A8726DC09BF00D9F199 /* VideosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A8626DC09BF00D9F199 /* VideosModel.swift */; };
+		FAC88A8C26DC09E200D9F199 /* SmallModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A8B26DC09E200D9F199 /* SmallModel.swift */; };
+		FAC88A9126DC0A0300D9F199 /* HitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A9026DC0A0300D9F199 /* HitsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		FA36576C26DB93F70030E939 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		FAC88A7026DBDEFA00D9F199 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FAC88A7826DBFA8E00D9F199 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
+		FAC88A7E26DC091400D9F199 /* GalleryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryModel.swift; sourceTree = "<group>"; };
+		FAC88A8626DC09BF00D9F199 /* VideosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosModel.swift; sourceTree = "<group>"; };
+		FAC88A8B26DC09E200D9F199 /* SmallModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallModel.swift; sourceTree = "<group>"; };
+		FAC88A9026DC0A0300D9F199 /* HitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 		FA3656A826DB617F0030E939 /* PhotoGalleryApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAC88A7D26DC08FD00D9F199 /* Models */,
 				FA36576B26DB93D90030E939 /* DataSources */,
 				FA36576226DB90DA0030E939 /* Extensions */,
 				FA36575826DB8EF40030E939 /* CustomCell */,
@@ -209,6 +218,17 @@
 				FA36576C26DB93F70030E939 /* TableViewDataSource.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		FAC88A7D26DC08FD00D9F199 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAC88A7E26DC091400D9F199 /* GalleryModel.swift */,
+				FAC88A8626DC09BF00D9F199 /* VideosModel.swift */,
+				FAC88A8B26DC09E200D9F199 /* SmallModel.swift */,
+				FAC88A9026DC0A0300D9F199 /* HitsViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,12 +363,16 @@
 			files = (
 				FA36572726DB6BEE0030E939 /* NetworkingAPI.swift in Sources */,
 				FA36576D26DB93F70030E939 /* TableViewDataSource.swift in Sources */,
+				FAC88A9126DC0A0300D9F199 /* HitsViewModel.swift in Sources */,
 				FA36573726DB70170030E939 /* AppConstants.swift in Sources */,
+				FAC88A8726DC09BF00D9F199 /* VideosModel.swift in Sources */,
 				FAC88A7126DBDEFA00D9F199 /* UIViewController.swift in Sources */,
+				FAC88A8C26DC09E200D9F199 /* SmallModel.swift in Sources */,
 				FA36575A26DB8F170030E939 /* GalleryTableViewCell.swift in Sources */,
 				FA36573D26DB747F0030E939 /* GalleryListViewModel.swift in Sources */,
 				FA3656AA26DB617F0030E939 /* AppDelegate.swift in Sources */,
 				FA36576426DB90EC0030E939 /* UIImageView.swift in Sources */,
+				FAC88A7F26DC091400D9F199 /* GalleryModel.swift in Sources */,
 				FA36575126DB8D5C0030E939 /* GalleryListViewController.swift in Sources */,
 				FA3656AC26DB617F0030E939 /* SceneDelegate.swift in Sources */,
 				FAC88A7926DBFA8E00D9F199 /* ImagePreviewViewController.swift in Sources */,

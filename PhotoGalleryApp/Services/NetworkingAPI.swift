@@ -17,7 +17,6 @@ final class NetworkingAPI {
     func load<T>(resource: Resource<T>, completion: @escaping (T?) -> ()) {
         
         URLSession.shared.dataTask(with: resource.url) { data, response, error in
-            print("ERROR:", error)
             if let data = data {
                 DispatchQueue.main.async {
                     completion(resource.parse(data))

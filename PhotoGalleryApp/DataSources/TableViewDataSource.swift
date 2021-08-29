@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
+// Creating a common data source class for table view ...
+
 class TableViewDataSource<CellType,ViewModel>: NSObject, UITableViewDataSource where CellType: UITableViewCell {
     
     let cellIdentifier: String
     var items: [ViewModel]
     let configureCell: (CellType, ViewModel) -> ()
-
+    
     init(cellIdentifier: String, items: [ViewModel], configureCell: @escaping (CellType,ViewModel) -> ()) {
         
         self.cellIdentifier = cellIdentifier

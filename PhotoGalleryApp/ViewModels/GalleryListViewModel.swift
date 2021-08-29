@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// delegate protocal to notify when data is fetched
 protocol GalleryDelegate {
     func didGalleryFetched(vm: [HitsViewModel])
 }
@@ -15,16 +15,16 @@ class GalleryListViewModel {
     private(set) var galleryViewModels = [HitsViewModel]()
     var delegate: GalleryDelegate?
     
+    // API call to fetch data
     func callGalleryAPI(page: Int, searchQuery: String, mediaType: Int) {
         let baseURL = (mediaType == 0) ? ApiConstants.APPURL.getPictures : ApiConstants.APPURL.getVideos
+        
         let searchQuery = searchQuery.isEmpty ? "" : "&q=\(searchQuery)"
         let queryParams = "&page=\(page)" + searchQuery
         
-        let galleryResource = Resource<GalleryViewModel>(url: URL(string:baseURL + queryParams)!) { data in
+        let galleryResource = Resource<GalleryModel>(url: URL(string:baseURL + queryParams)!) { data in
             
-            print("END POINT:",baseURL + queryParams )
-            
-            let galleryVM = try? JSONDecoder().decode(GalleryViewModel.self, from: data)
+            let galleryVM = try? JSONDecoder().decode(GalleryModel.self, from: data)
             return galleryVM
         }
         
@@ -32,10 +32,12 @@ class GalleryListViewModel {
             
             if let galleryVM = result {
                 if let hitsArray = galleryVM.hits{
+                    //                    to handle pagination
                     var tempArray = self?.galleryViewModels
                     tempArray?.append(contentsOf: hitsArray)
                     
                     self?.galleryViewModels =  tempArray ?? []
+                    // notifying VCs when data is fetched
                     if let delegate = self?.delegate {
                         delegate.didGalleryFetched(vm: self?.galleryViewModels ?? [])
                     }
@@ -44,7 +46,7 @@ class GalleryListViewModel {
         }
     }
     
-    
+    // supporting methods
     func numberOfRows(_ section: Int) -> Int {
         return self.galleryViewModels.count
     }
@@ -58,97 +60,11 @@ class GalleryListViewModel {
     }
 }
 
-struct GalleryViewModel: Decodable {
-    let total : Int?
-    let totalHits : Int?
-    let hits : [HitsViewModel]?
-    
-    private enum CodingKeys: String, CodingKey {
-        
-        case total = "total"
-        case totalHits = "totalHits"
-        case hits = "hits"
-    }
-}
-
-struct Videos : Decodable {
-    let small : Small?
-    
-    private enum CodingKeys: String, CodingKey {
-        case small = "small"
-    }
-    
-}
-
-struct Small : Codable {
-    let url : String?
-    let width : Int?
-    let height : Int?
-    let size : Int?
-    
-    private enum CodingKeys: String, CodingKey {
-        
-        case url = "url"
-        case width = "width"
-        case height = "height"
-        case size = "size"
-    }
-    
-}
 
 
-struct HitsViewModel: Decodable {
-    let id : Int?
-    let pageURL : String?
-    let type : String?
-    let tags : String?
-    let previewURL : String?
-    let previewWidth : Int?
-    let previewHeight : Int?
-    let webformatURL : String?
-    let webformatWidth : Int?
-    let webformatHeight : Int?
-    let largeImageURL : String?
-    let imageWidth : Int?
-    let imageHeight : Int?
-    let imageSize : Int?
-    let views : Int?
-    let downloads : Int?
-    let collections : Int?
-    let likes : Int?
-    let comments : Int?
-    let user_id : Int?
-    let user : String?
-    let userImageURL : String?
-    let video : Videos?
-    
-    
-    private enum CodingKeys: String, CodingKey {
-        
-        case id = "id"
-        case pageURL = "pageURL"
-        case type = "type"
-        case tags = "tags"
-        case previewURL = "previewURL"
-        case previewWidth = "previewWidth"
-        case previewHeight = "previewHeight"
-        case webformatURL = "webformatURL"
-        case webformatWidth = "webformatWidth"
-        case webformatHeight = "webformatHeight"
-        case largeImageURL = "largeImageURL"
-        case imageWidth = "imageWidth"
-        case imageHeight = "imageHeight"
-        case imageSize = "imageSize"
-        case views = "views"
-        case downloads = "downloads"
-        case collections = "collections"
-        case likes = "likes"
-        case comments = "comments"
-        case user_id = "user_id"
-        case user = "user"
-        case userImageURL = "userImageURL"
-        case video = "videos"
-        
-    }
-}
+
+
+
+
+
 

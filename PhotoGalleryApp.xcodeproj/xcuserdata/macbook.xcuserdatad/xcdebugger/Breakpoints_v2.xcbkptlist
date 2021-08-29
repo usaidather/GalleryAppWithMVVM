@@ -78,8 +78,8 @@
             filePath = "PhotoGalleryApp/ViewControllers/GalleryListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "segmentControlIndexChanged(_:)"
             landmarkType = "7">
             <Locations>

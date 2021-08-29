@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+// A handy extension for UI View Controller to handle tap gesture to dismiss kkeyboard.
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
