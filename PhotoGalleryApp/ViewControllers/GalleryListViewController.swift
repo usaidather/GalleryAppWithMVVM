@@ -96,6 +96,10 @@ extension GalleryListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if(self.gallerySegmentControll.selectedSegmentIndex == 0) {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImagePreviewViewController") as? ImagePreviewViewController
+            vc?.imagePreviewURL = self.galleryListViewModel.modelAt(indexPath.row).largeImageURL ?? ""
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
             
         }else{
             let videoURL =  URL(string: self.galleryListViewModel.modelAt(indexPath.row).video?.small?.url ?? "")

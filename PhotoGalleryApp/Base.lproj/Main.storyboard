@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2gW-zU-7ef">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Gallery List View Controller-->
+        <!--Photo Gallery-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="GalleryListViewController" id="BYZ-38-t0r" customClass="GalleryListViewController" customModule="PhotoGalleryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search Here ..." translatesAutoresizingMaskIntoConstraints="NO" id="t64-LO-oyL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hfy-Ym-wVm">
-                                <rect key="frame" x="8" y="108" width="398" height="32"/>
+                                <rect key="frame" x="8" y="152" width="398" height="32"/>
                                 <segments>
                                     <segment title="Images"/>
                                     <segment title="Videos"/>
@@ -31,7 +31,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-zZ-Ny9">
-                                <rect key="frame" x="0.0" y="147" width="414" height="749"/>
+                                <rect key="frame" x="0.0" y="191" width="414" height="705"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="100" id="D7v-EA-rbH" customClass="GalleryTableViewCell" customModule="PhotoGalleryApp" customModuleProvider="target">
@@ -139,6 +139,7 @@
                             <constraint firstItem="6Tn-zZ-Ny9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vxl-Sx-Fep"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Photo Gallery" id="CHy-CQ-9sD"/>
                     <connections>
                         <outlet property="galleryListTableView" destination="6Tn-zZ-Ny9" id="93W-GH-l7h"/>
                         <outlet property="gallerySegmentControll" destination="Hfy-Ym-wVm" id="1Gw-Bk-4MW"/>
@@ -146,6 +147,53 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="760.86956521739137" y="19.419642857142858"/>
+        </scene>
+        <!--Image Preview View Controller-->
+        <scene sceneID="mlY-Oz-Rt8">
+            <objects>
+                <viewController storyboardIdentifier="ImagePreviewViewController" id="SsX-u8-HFe" customClass="ImagePreviewViewController" customModule="PhotoGalleryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="voM-nv-9DP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="98U-L0-m5c">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i1J-Bp-Q7h"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="98U-L0-m5c" firstAttribute="top" secondItem="i1J-Bp-Q7h" secondAttribute="top" id="i05-NA-lRp"/>
+                            <constraint firstItem="98U-L0-m5c" firstAttribute="leading" secondItem="i1J-Bp-Q7h" secondAttribute="leading" id="skG-nB-C8k"/>
+                            <constraint firstItem="i1J-Bp-Q7h" firstAttribute="bottom" secondItem="98U-L0-m5c" secondAttribute="bottom" id="uUO-Cv-bKx"/>
+                            <constraint firstItem="i1J-Bp-Q7h" firstAttribute="trailing" secondItem="98U-L0-m5c" secondAttribute="trailing" id="xg6-CY-nTB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imagePreviewView" destination="98U-L0-m5c" id="FNV-vq-iBe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bc5-kg-lXY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421" y="17"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="VUB-CB-UTm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2gW-zU-7ef" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yv3-HP-Gjx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ecR-fx-Zbm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TAV-FP-23V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-149.27536231884059" y="19.419642857142858"/>
         </scene>

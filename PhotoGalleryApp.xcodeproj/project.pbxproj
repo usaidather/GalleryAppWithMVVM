@@ -23,6 +23,7 @@
 		FA36576426DB90EC0030E939 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36576326DB90EC0030E939 /* UIImageView.swift */; };
 		FA36576D26DB93F70030E939 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA36576C26DB93F70030E939 /* TableViewDataSource.swift */; };
 		FAC88A7126DBDEFA00D9F199 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A7026DBDEFA00D9F199 /* UIViewController.swift */; };
+		FAC88A7926DBFA8E00D9F199 /* ImagePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC88A7826DBFA8E00D9F199 /* ImagePreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FA36576326DB90EC0030E939 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		FA36576C26DB93F70030E939 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		FAC88A7026DBDEFA00D9F199 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		FAC88A7826DBFA8E00D9F199 /* ImagePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				FA36575026DB8D5C0030E939 /* GalleryListViewController.swift */,
+				FAC88A7826DBFA8E00D9F199 /* ImagePreviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				FA36576426DB90EC0030E939 /* UIImageView.swift in Sources */,
 				FA36575126DB8D5C0030E939 /* GalleryListViewController.swift in Sources */,
 				FA3656AC26DB617F0030E939 /* SceneDelegate.swift in Sources */,
+				FAC88A7926DBFA8E00D9F199 /* ImagePreviewViewController.swift in Sources */,
 				FA3656DF26DB68C10030E939 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
