@@ -7,17 +7,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "64F6C0FA-4075-4ED9-B1FA-078695FE107F"
+            uuid = "BD2BC473-D473-4971-B8F0-71A8D8F7A3BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoGalleryApp/ViewModels/GalleryListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "callGalleryAPI(page:searchQuery:mediaType:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9FA9AFC1-A912-4306-98F1-EAD47F09050B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoGalleryApp/CustomCell/GalleryTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "configure(_:mediaType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9FA9AFC1-A912-4306-98F1-EAD47F09050B - c59bc2ec3446edae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoGalleryApp.GalleryTableViewCell.configure(_: PhotoGalleryApp.HitsViewModel, mediaType: Swift.Int) -&gt; ()"
+                  moduleName = "PhotoGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Projects/XCode/GalleryAppWithMVVM/PhotoGalleryApp/CustomCell/GalleryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "289">
+               </Location>
+               <Location
+                  uuid = "9FA9AFC1-A912-4306-98F1-EAD47F09050B - c59bc2ec3446edae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoGalleryApp.GalleryTableViewCell.configure(_: PhotoGalleryApp.HitsViewModel, mediaType: Swift.Int) -&gt; ()"
+                  moduleName = "PhotoGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Projects/XCode/GalleryAppWithMVVM/PhotoGalleryApp/CustomCell/GalleryTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1366">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "094F8029-3677-4D28-A055-953A3047524A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoGalleryApp/ViewControllers/GalleryListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "didGalleryFetched(vm:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "segmentControlIndexChanged(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "094F8029-3677-4D28-A055-953A3047524A - 81609c07f02499f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoGalleryApp.GalleryListViewController.segmentControlIndexChanged(Any) -&gt; ()"
+                  moduleName = "PhotoGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Projects/XCode/GalleryAppWithMVVM/PhotoGalleryApp/ViewControllers/GalleryListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  uuid = "094F8029-3677-4D28-A055-953A3047524A - 81609c07f02499f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoGalleryApp.GalleryListViewController.segmentControlIndexChanged(Any) -&gt; ()"
+                  moduleName = "PhotoGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Projects/XCode/GalleryAppWithMVVM/PhotoGalleryApp/ViewControllers/GalleryListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "287">
+               </Location>
+               <Location
+                  uuid = "094F8029-3677-4D28-A055-953A3047524A - 81609c07f02499f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoGalleryApp.GalleryListViewController.segmentControlIndexChanged(Any) -&gt; ()"
+                  moduleName = "PhotoGalleryApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/macbook/Projects/XCode/GalleryAppWithMVVM/PhotoGalleryApp/ViewControllers/GalleryListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "639">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

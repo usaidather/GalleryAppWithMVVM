@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import AVKit
+import AVFoundation
 
 class GalleryListViewController: UIViewController {
     
+    @IBOutlet weak var gallerySegmentControll: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var galleryListTableView: UITableView!
     
@@ -38,13 +41,13 @@ class GalleryListViewController: UIViewController {
         self.galleryListViewModel.delegate = self
         self.searchBar.delegate = self
         
-        self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: "")
+        self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: "", mediaType: self.gallerySegmentControll.selectedSegmentIndex)
         self.isDataLoading = true
         
         
         self.datasource = TableViewDataSource(cellIdentifier: "GalleryCell", items: self.galleryListViewModel.galleryViewModels) { cell, vm in
             
-            cell.configure(vm)
+            cell.configure(vm, mediaType: self.gallerySegmentControll.selectedSegmentIndex)
         }
         
         self.galleryListTableView.dataSource = self.datasource
@@ -53,8 +56,24 @@ class GalleryListViewController: UIViewController {
     @objc func searchInGallery() {
         self.setValuesToDefault()
         
-        self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: self.searchBar.text ?? "")
+        self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: self.searchBar.text ?? "", mediaType: self.gallerySegmentControll.selectedSegmentIndex)
         
+    }
+    
+    @IBAction func segmentControlIndexChanged(_ sender: Any) {
+        self.setValuesToDefault()
+        
+        switch self.gallerySegmentControll.selectedSegmentIndex
+        {
+        case 0:
+            self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: "", mediaType: self.gallerySegmentControll.selectedSegmentIndex)
+        //show popular view
+        case 1:
+            self.galleryListViewModel.callGalleryAPI(page: page, searchQuery: "", mediaType: self.gallerySegmentControll.selectedSegmentIndex)
+        //show history view
+        default:
+            break;
+        }
     }
 }
 
@@ -75,7 +94,18 @@ extension GalleryListViewController: GalleryDelegate {
 extension GalleryListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
+        if(self.gallerySegmentControll.selectedSegmentIndex == 0) {
+            
+        }else{
+            let videoURL =  URL(string: self.galleryListViewModel.modelAt(indexPath.row).video?.small?.url ?? "")
+            let player = AVPlayer(url: videoURL!)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -85,7 +115,7 @@ extension GalleryListViewController: UITableViewDelegate {
         if indexPath.row == lastElement && !self.isDataLoading && !self.didDataEnd {
             self.page += 1
             self.isDataLoading = true
-            galleryListViewModel.callGalleryAPI(page: self.page, searchQuery: self.searchBar.text ?? "")
+            galleryListViewModel.callGalleryAPI(page: self.page, searchQuery: self.searchBar.text ?? "", mediaType: self.gallerySegmentControll.selectedSegmentIndex)
         }
     }
 }

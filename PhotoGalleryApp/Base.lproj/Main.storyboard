@@ -16,8 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search Here ..." translatesAutoresizingMaskIntoConstraints="NO" id="t64-LO-oyL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hfy-Ym-wVm">
+                                <rect key="frame" x="8" y="108" width="398" height="32"/>
+                                <segments>
+                                    <segment title="Images"/>
+                                    <segment title="Videos"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlIndexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="6cP-AT-BMR"/>
+                                </connections>
+                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Tn-zZ-Ny9">
-                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <rect key="frame" x="0.0" y="147" width="414" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="100" id="D7v-EA-rbH" customClass="GalleryTableViewCell" customModule="PhotoGalleryApp" customModuleProvider="target">
@@ -36,6 +50,10 @@
                                                                 <constraint firstAttribute="height" constant="100" id="LG1-ee-xm0"/>
                                                                 <constraint firstAttribute="width" secondItem="tRn-kP-JpJ" secondAttribute="height" multiplier="69:35" id="SF2-HQ-PU4"/>
                                                             </constraints>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Play" translatesAutoresizingMaskIntoConstraints="NO" id="aOr-OK-VVo">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yBM-aZ-LTp">
                                                             <rect key="frame" x="5" y="75.5" width="404" height="21.5"/>
@@ -70,9 +88,13 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="yBM-aZ-LTp" secondAttribute="bottom" constant="3" id="4iS-qI-Eeb"/>
+                                                        <constraint firstItem="aOr-OK-VVo" firstAttribute="top" secondItem="tRn-kP-JpJ" secondAttribute="top" id="8MV-XN-iXI"/>
+                                                        <constraint firstItem="aOr-OK-VVo" firstAttribute="leading" secondItem="tRn-kP-JpJ" secondAttribute="leading" id="8YY-QZ-OBZ"/>
+                                                        <constraint firstItem="aOr-OK-VVo" firstAttribute="trailing" secondItem="tRn-kP-JpJ" secondAttribute="trailing" id="9ac-2V-qwN"/>
                                                         <constraint firstItem="yBM-aZ-LTp" firstAttribute="leading" secondItem="udI-bi-Q0N" secondAttribute="leading" constant="5" id="B0q-H9-28U"/>
                                                         <constraint firstAttribute="bottom" secondItem="tRn-kP-JpJ" secondAttribute="bottom" id="CAS-iT-C5b"/>
                                                         <constraint firstItem="tRn-kP-JpJ" firstAttribute="top" secondItem="udI-bi-Q0N" secondAttribute="top" id="Fjs-IO-BPy"/>
+                                                        <constraint firstItem="aOr-OK-VVo" firstAttribute="bottom" secondItem="tRn-kP-JpJ" secondAttribute="bottom" id="e2w-Yi-xHb"/>
                                                         <constraint firstAttribute="trailing" secondItem="tRn-kP-JpJ" secondAttribute="trailing" id="eDH-QP-OZr"/>
                                                         <constraint firstItem="tRn-kP-JpJ" firstAttribute="leading" secondItem="udI-bi-Q0N" secondAttribute="leading" id="eus-qt-517"/>
                                                         <constraint firstAttribute="trailing" secondItem="yBM-aZ-LTp" secondAttribute="trailing" constant="5" id="yIi-g2-puv"/>
@@ -91,6 +113,7 @@
                                             <outlet property="galleryImageView" destination="tRn-kP-JpJ" id="gEB-ll-5UT"/>
                                             <outlet property="imageHeightConstraint" destination="LG1-ee-xm0" id="AR0-5V-TO0"/>
                                             <outlet property="likesLabel" destination="MUD-5W-nVu" id="ru8-Cc-Aav"/>
+                                            <outlet property="videoPlayImageView" destination="aOr-OK-VVo" id="Xtw-Gl-rbA"/>
                                             <outlet property="viewsLabel" destination="rRa-Ne-ec2" id="j4g-DB-c16"/>
                                         </connections>
                                     </tableViewCell>
@@ -100,25 +123,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="XRP-tk-0W7"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search Here ..." translatesAutoresizingMaskIntoConstraints="NO" id="t64-LO-oyL">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Hfy-Ym-wVm" firstAttribute="top" secondItem="t64-LO-oyL" secondAttribute="bottom" constant="8" id="5P4-yH-irf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hfy-Ym-wVm" secondAttribute="trailing" constant="8" id="CuS-es-Fpf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Tn-zZ-Ny9" secondAttribute="trailing" id="Fda-WB-t9E"/>
                             <constraint firstItem="t64-LO-oyL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JDP-gJ-VWs"/>
                             <constraint firstAttribute="bottom" secondItem="6Tn-zZ-Ny9" secondAttribute="bottom" id="L64-Po-3KL"/>
                             <constraint firstItem="t64-LO-oyL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ssx-O6-jhv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t64-LO-oyL" secondAttribute="trailing" id="YHH-N9-QRU"/>
-                            <constraint firstItem="6Tn-zZ-Ny9" firstAttribute="top" secondItem="t64-LO-oyL" secondAttribute="bottom" id="eeQ-CU-HhF"/>
+                            <constraint firstItem="Hfy-Ym-wVm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="oEJ-N5-Egq"/>
+                            <constraint firstItem="6Tn-zZ-Ny9" firstAttribute="top" secondItem="Hfy-Ym-wVm" secondAttribute="bottom" constant="8" id="sP7-lC-7nI"/>
                             <constraint firstItem="6Tn-zZ-Ny9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vxl-Sx-Fep"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="galleryListTableView" destination="6Tn-zZ-Ny9" id="93W-GH-l7h"/>
+                        <outlet property="gallerySegmentControll" destination="Hfy-Ym-wVm" id="1Gw-Bk-4MW"/>
                         <outlet property="searchBar" destination="t64-LO-oyL" id="3d4-RL-0C3"/>
                     </connections>
                 </viewController>
@@ -128,8 +151,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Play" width="21.333333969116211" height="21.333333969116211"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -14,15 +14,15 @@ protocol GalleryDelegate {
 class GalleryListViewModel {
     private(set) var galleryViewModels = [HitsViewModel]()
     var delegate: GalleryDelegate?
-
-    func callGalleryAPI(page: Int, searchQuery: String) {
+    
+    func callGalleryAPI(page: Int, searchQuery: String, mediaType: Int) {
+        let baseURL = (mediaType == 0) ? ApiConstants.APPURL.getPictures : ApiConstants.APPURL.getVideos
         let searchQuery = searchQuery.isEmpty ? "" : "&q=\(searchQuery)"
-        
         let queryParams = "&page=\(page)" + searchQuery
         
-        let galleryResource = Resource<GalleryViewModel>(url: URL(string:ApiConstants.APPURL.getPictures + queryParams)!) { data in
+        let galleryResource = Resource<GalleryViewModel>(url: URL(string:baseURL + queryParams)!) { data in
             
-            print("END POINT:",ApiConstants.APPURL.getPictures + "&page=\(page)" + "&q=\(searchQuery)" )
+            print("END POINT:",baseURL + queryParams )
             
             let galleryVM = try? JSONDecoder().decode(GalleryViewModel.self, from: data)
             return galleryVM
@@ -71,6 +71,32 @@ struct GalleryViewModel: Decodable {
     }
 }
 
+struct Videos : Decodable {
+    let small : Small?
+    
+    private enum CodingKeys: String, CodingKey {
+        case small = "small"
+    }
+    
+}
+
+struct Small : Codable {
+    let url : String?
+    let width : Int?
+    let height : Int?
+    let size : Int?
+    
+    private enum CodingKeys: String, CodingKey {
+        
+        case url = "url"
+        case width = "width"
+        case height = "height"
+        case size = "size"
+    }
+    
+}
+
+
 struct HitsViewModel: Decodable {
     let id : Int?
     let pageURL : String?
@@ -94,6 +120,8 @@ struct HitsViewModel: Decodable {
     let user_id : Int?
     let user : String?
     let userImageURL : String?
+    let video : Videos?
+    
     
     private enum CodingKeys: String, CodingKey {
         
@@ -119,6 +147,8 @@ struct HitsViewModel: Decodable {
         case user_id = "user_id"
         case user = "user"
         case userImageURL = "userImageURL"
+        case video = "videos"
+        
     }
 }
 
